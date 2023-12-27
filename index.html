@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcraft</title>
+    <link rel="icon" type="image/png" href="images/title.png"/>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function choosePlan(planValue) {
+            localStorage.setItem('plan', planValue);
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("myForm");
+    
+            form.addEventListener("submit", function(event) {
+                // Prevent the form from submitting normally
+                event.preventDefault();
+    
+                // Validate the fields
+                const nameInput = form.querySelector('input[name="name"]');
+                const emailInput = form.querySelector('input[name="email"]');
+                const numberInput = form.querySelector('input[name="number"]');
+                const messageInput = form.querySelector('textarea[name="message"]');
+                let isValid = true;
+    
+                // Validate name (not empty)
+                if (nameInput.value.trim() === "") {
+                    isValid = false;
+                    alert("Please enter your name.");
+                }
+    
+                // Validate email (valid email format)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    isValid = false;
+                    alert("Please enter a valid email address.");
+                }
+    
+                // Validate number (must be a positive number)
+                const phoneRegex = /^(0|\+91)?[6-9][0-9]{9}$/;
+                if (!phoneRegex.test(numberInput.value)) {
+                isValid = false;
+                alert("Please enter a valid 10-digit phone number.");
+}
+    
+                // Validate message (not empty)
+                if (messageInput.value.trim() === "") {
+                    isValid = false;
+                    alert("Please enter your message.");
+                }
+    
+                // If all validations passed, submit the form
+                if (isValid) {
+                    form.submit();
+                    alert("Form submitted successfully!");
+                    nameInput.value = "";
+                    emailInput.value = "";
+                    numberInput.value = "";
+                    messageInput.value = "";
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo">webcraft.</a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#services">services</a>
+        <a href="#about">about</a>
+        <a href="#portfolio">portfolio</a>
+        <a href="#pricing">pricing</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>grow your business with us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere atque sapiente veritatis nesciunt adipisci culpa.</p>
+        <a href="#services" class="btn">Know More</a>
+    </div>
+
+    <div class="image">
+        <img src="images/growth.png" alt="">
+    </div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+        
+            <div class="box">
+                <img src="images/s-1.png" alt="">
+                <h3>web design</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup1">Learn More</a>
+            </div>
+            <div class="box">
+                <img src="images/s-2.png" alt="">
+                <h3>seo marketing</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup2">Learn More</a>
+            </div>
+
+            <div class="box">
+                <img src="images/s-3.png" alt="">
+                <h3>web hosting</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup3">Learn More</a>
+            </div>
+            <div class="box">
+                <img src="images/s-4.png" alt="">
+                <h3>digital marketing</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup4">Learn More</a>
+            </div>
+
+            <div class="box">
+                <img src="images/s-5.png" alt="">
+                <h3>ad campaign</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup5">Learn More</a>
+            </div>
+            <div class="box">
+                <img src="images/s-6.png" alt="">
+                <h3>content marketing</h3><br><br>
+                <a href="#" class="btn learn-more-button" data-popup="popup6">Learn More</a>
+            </div>
+
+        <div id="popupContainer" class="popup-container">
+            <div id="popup1" class="popup-card">
+                <img src="images/s-1.png" alt=""> 
+            <h2>Web Design</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                 consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+            <div id="popup2" class="popup-card">
+                <img src="images/s-2.png" alt=""> 
+              <h2>SEO Marketing</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+            <div id="popup3" class="popup-card">
+                <img src="images/s-3.png" alt=""> 
+              <h2>Web Hosting</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+            <div id="popup4" class="popup-card">
+                <img src="images/s-4.png" alt=""> 
+              <h2>Digital Marketing</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+            <div id="popup5" class="popup-card">
+                <img src="images/s-5.png" alt=""> 
+              <h2>Ad Campaign</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+            <div id="popup6" class="popup-card">
+                <img src="images/s-6.png" alt=""> 
+              <h2>Content Marketing</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, in saepe obcaecati, aliquid, ipsam enim eum esse repellendus
+                consectetur ipsum totam dolores quo quibusdam libero officiis magnam soluta reprehenderit ut.</p>
+            </div>
+          </div>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>about</span> us </h1>
+    
+    <div class="row">
+
+        <div class="image">
+            <img src="images/about-img.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3 class="title">big projects start with big dreams</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, reiciendis quod illo expedita dignissimos voluptatibus saepe! Laborum molestiae
+                 odit commodi modi voluptatibus provident soluta eum error labore repudiandae aliquam, ipsam veniam tempora sequi amet placeat ut architecto 
+                 eveniet maiores saepe, doloribus culpa dignissimos deleniti quibusdam. Enim numquam odio molestiae similique vitae a iusto neque voluptates, 
+                 labore nesciunt accusamus facilis, illo animi. Quasi asperiores doloremque eius velit? Voluptatum asperiores debitis nobis. Libero, reiciendis
+                 odit commodi modi voluptatibus provident soluta eum error labore repudiandae aliquam, ipsam veniam tempora sequi amet placeat ut architecto 
+                 eveniet maiores saepe, doloribus culpa dignissimos deleniti quibusdam. Enim numquam odio molestiae similique vitae a iusto neque voluptates, 
+                 labore nesciunt accusamus facilis, illo animi. Quasi asperiores doloremque eius velit? Voluptatum asperiores debitis nobis.</p>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-award"></i>
+                    <h3>14 award won</h3>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-user"></i>
+                    <h3>250 satisfied clients</h3>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>200 projects completed</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- portfolio section starts   -->
+
+<section class="portfolio" id="portfolio">
+
+    <h1 class="heading"> our <span>portfolio</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span>01</span>
+            <img src="images/port-img1.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st August, 2021</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>02</span>
+            <img src="images/port-img2.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st December, 2021</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>03</span>
+            <img src="images/port-img3.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st May, 2022</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>04</span>
+            <img src="images/port-img4.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st October, 2022</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>05</span>
+            <img src="images/port-img5.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st March, 2023</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <span>06</span>
+            <img src="images/port-img6.jpg" alt="">
+            <div class="content">
+                <h3>web design</h3>
+                <p>1st July, 2023</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- portfolio section ends -->
+
+<!-- pricing section starts  -->
+
+<!-- pricing section starts  -->
+
+<section class="pricing" id="pricing">
+
+    <h1 class="heading"> our <span>pricing</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>basic plan</h3>
+            <img src="images/p-1.png" alt="">
+            <div class="price"> <span>₹</span>399<span>/mo</span> </div>
+            <ul>
+                <li>Design Upto 5 Pages</li>
+                <li>Web Hosting</li>
+                <li>Seo Marketing</li>
+                <li>Setup of 1 Ad Campaign</li>
+                <li>2 SEO-Optimised Posts</li>
+            </ul>
+            <a href="form.html" class="btn" onclick="choosePlan('399')"
+             target="_blank">choose plan</a>
+        </div>
+
+        <div class="box">
+            <h3>standard plan</h3>
+            <img src="images/p-2.png" alt="">
+            <div class="price"> <span>₹</span>599<span>/mo</span> </div>
+            <ul>
+                <li>Design Upto 10 Pages</li>
+                <li>Web Hosting (VPS)</li>
+                <li>Seo Marketing(Link Building)</li>
+                <li>Setup of 3 Ad Campaigns</li>
+                <li>2 SEO-Optimised Posts</li>
+            </ul>
+            <a href="form.html" class="btn" onclick="choosePlan('599')"
+             target="_blank">choose plan</a>
+        </div>
+        <div class="box">
+            <h3>premium plan</h3>
+            <img src="images/p-3.png" alt="">
+            <div class="price"> <span>₹</span>999<span>/mo</span> </div>
+            <ul>
+                <li>Design Upto Unlimited Pages</li>
+                <li>Web Hosting (VPS,Backup)</li>
+                <li>Seo Marketing(Link Building,Audits)</li>
+                <li>Setup of Unlimited Ad Campaigns</li>
+                <li>Unlimited SEO-Optimised Posts</li>
+            </ul>
+            <a href="form.html" class="btn" onclick="choosePlan('999')" target="_blank">choose plan</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- pricing section ends -->
+
+<!-- reivew section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> client's <span>review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-1.png" alt="">
+                <div class="info">
+                    <h3>alistar</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui rerum ducimus, fuga numquam itaque modi magnam officiis obcaecati! Aliquid delectus aperiam harum voluptas animi unde sapiente quidem laudantium facere? Deserunt.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rerum explicabo illo libero modi quos laboriosam, totam eligendi. Adipisci, itaque.</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-2.png" alt="">
+                <div class="info">
+                    <h3>sia</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui rerum ducimus, fuga numquam itaque modi magnam officiis obcaecati! Aliquid delectus aperiam harum voluptas animi unde sapiente quidem laudantium facere? Deserunt.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rerum explicabo illo libero modi quos laboriosam, totam eligendi. Adipisci, itaque.</p>
+        </div>
+
+        <div class="box">
+            <div class="user">
+                <img src="images/pic-3.png" alt="">
+                <div class="info">
+                    <h3>conway</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <i class="fas fa-quote-right"></i>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui rerum ducimus, fuga numquam itaque modi magnam officiis obcaecati! Aliquid delectus aperiam harum voluptas animi unde sapiente quidem laudantium facere? Deserunt.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rerum explicabo illo libero modi quos laboriosam, totam eligendi. Adipisci, itaque.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- reivew section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"> <span>contact</span> us </h1>
+
+    <div class="icons-container">
+        <div class="icons">
+            <i class="fas fa-phone"></i>
+            <h3>our number</h3>
+            <p>+91 64747-74783</p>
+            <p>+91-7276-3093</p>
+        </div>
+        <div class="icons">
+            <i class="fas fa-envelope"></i>
+            <h3>our email</h3>
+            <p>ptani@gmail.com</p>
+            <p>ferptani@gmail.com</p>
+        </div>
+        <div class="icons">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>our location</h3>
+            <p>humbran, india - 140104</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27378.18060232465!2d75.65135094420808!3d30.934950917157224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a7dca8a99f667%3A0x486d0d077e963872!2sHambran%2C%20Punjab!5e0!3m2!1sen!2sin!4v1699534014582!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <form id="myForm" action="process_form.php" method="post" target="hidden-iframe">
+            <input type="text" placeholder="Name" class="box" name="name">
+            <input type="email" placeholder="Email" class="box" name="email">
+            <input type="tel" placeholder="Number" class="box" name="number">
+            <textarea placeholder="Message" class="box" name="message" cols="30" rows="10"></textarea>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+        <iframe name="hidden-iframe" style="display:none;"></iframe>
+
+    </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+        
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="https://www.google.com/maps/place/Hambran,+Punjab/@30.9349877,75.6513509,14z/data=!3m1!4b1!4m6!3m5!1s0x391a7dca8a99f667:0x486d0d077e963872!8m2!3d30.9326217!4d75.6731734!16s%2Fg%2F11c487sdqf?entry=ttu" target="_blank"> <i class="fas fa-map-marker-alt"></i> ludhiana </a>
+            <a href="https://www.google.com/maps/place/Amritsar,+Punjab/@31.6336639,74.7877187,12z/data=!3m1!4b1!4m6!3m5!1s0x391964aa569e7355:0xeea2605bee84ef7d!8m2!3d31.6339793!4d74.8722642!16zL20vMDI5a3B5?entry=ttu"target="_blank"> <i class="fas fa-map-marker-alt"></i> amritsar </a>
+            <a href="https://www.google.com/maps/place/Phagwara,+Punjab/@31.2159526,75.7176522,13z/data=!3m1!4b1!4m6!3m5!1s0x391af4e8654ed27b:0x44f046dd6942ae0d!8m2!3d31.2231589!4d75.7670466!16zL20vMGJnamQ5?entry=ttu" target="_blank"> <i class="fas fa-map-marker-alt"></i> phagwara </a>
+            <a href="https://www.google.com/maps/place/Moga,+Punjab+142001/@30.8223067,75.1467284,13z/data=!3m1!4b1!4m6!3m5!1s0x391a08620d7489c9:0x17a3d439cd1d10ad!8m2!3d30.8230114!4d75.1734471!16zL20vMGQzbHM1?entry=ttu" target="_blank"> <i class="fas fa-map-marker-alt"></i> moga </a>
+            <a href="https://www.google.com/maps/place/Patiala,+Punjab/@30.3466293,76.3266524,12z/data=!3m1!4b1!4m6!3m5!1s0x391028935a3313df:0xd5bc56ad3b90bc7f!8m2!3d30.3397809!4d76.3868797!16zL20vMDE4Zzgz?entry=ttu" target="_blank"> <i class="fas fa-map-marker-alt"></i> patiala </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#services"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="#about"> <i class="fas fa-arrow-right"></i> about </a>
+            <a href="#portfolio"> <i class="fas fa-arrow-right"></i> portfolio </a>
+            <a href="#pricing"> <i class="fas fa-arrow-right"></i> pricing </a>
+            <a href="#review"> <i class="fas fa-arrow-right"></i> review </a>
+            <a href="#contact"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#services"> <i class="fas fa-check"></i> web design </a>
+            <a href="#services"> <i class="fas fa-check"></i> digital marketing </a>
+            <a href="#services"> <i class="fas fa-check"></i> email marketing </a>
+            <a href="#services"> <i class="fas fa-check"></i> content marketing </a>
+            <a href="#services"> <i class="fas fa-check"></i> seo marketing </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com/" target="_blank"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="https://twitter.com/" target="_blank"> <i class="fab fa-twitter"></i> x </a>
+            <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="https://www.linkedin.com/" target="_blank"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="https://www.pinterest.com/" target="_blank"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- footer section ends -->
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

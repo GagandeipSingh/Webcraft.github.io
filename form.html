@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="icon" type="image/png" href="images/title.png"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('plan').value = localStorage.getItem('plan');
+        });
+
+        function clearStorage() {
+            localStorage.clear();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p id="bank">(Bank Details: Lorem ipsum dolor sit amet consectetur adipisicing dolor sit)</p>
+            <p id="title">Registration</p>
+        </div>
+
+        <form action="uploads.php" method="post" enctype="multipart/form-data" target="hidden-iframe">
+            <div class="user_details">
+                <div class="input_box">
+                    <label for="name">Owner Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input_box">
+                    <label for="plan">Selected Plan</label>
+                    <input type="text" id="plan" name="plan" readonly>
+                </div>
+                <div class="input_box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input_box">
+                    <label for="aemail">Alternate Email</label>
+                    <input type="email" id="aemail" name="aemail" placeholder="Enter alternate email" required>
+                </div>
+                <div class="input_box">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your number" required>
+                </div>
+                <div class="input_box">
+                    <label for="aphone">Alternate Phone Number</label>
+                    <input type="tel" id="aphone" name="aphone" placeholder="Enter alternate number" required>
+                </div>
+                <div class="photo_upload">
+                    <label for="photo">Upload a Photo</label>
+                    <input type="file" id="photo"  name="photo" accept="image/*" required>
+                </div>
+                </div>
+            <div class="reg_btn">
+                <input type="submit" value="Submit" onclick="clearStorage()">
+            </div>
+        </form>
+    </div>
+    <iframe name="hidden-iframe" style="display:none;"></iframe>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector('form');
+
+            form.addEventListener("submit", function(event) {
+                // Prevent the form from submitting normally
+                event.preventDefault();
+
+                // Validate the fields
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const aemailInput = document.getElementById('aemail');
+                const phoneInput = document.getElementById('phone');
+                const aphoneInput = document.getElementById('aphone');
+                const planInput = document.getElementById('plan');
+                const photoInput = document.getElementById('photo');
+                let isValid = true;
+
+                // Validate name (not empty)
+                if (nameInput.value.trim() === "") {
+                    isValid = false;
+                    alert("Please enter your name.");
+                }
+                if (planInput.value.trim() === "") {
+                    isValid = false;
+                    alert("You have to select plan from main page !!");
+                }
+
+                // Validate email (valid email format)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value) || !emailRegex.test(aemailInput.value)) {
+                    isValid = false;
+                    alert("Please enter a valid email address.");
+                }
+
+                const phoneRegex = /^(0|\+91)?[6-9][0-9]{9}$/;
+                if (!phoneRegex.test(phoneInput.value) || !phoneRegex.test(aphoneInput.value)) {
+                    isValid = false;
+                    alert("Please enter a valid 10-digit phone number.");
+                }
+
+                // If all validations passed, submit the form
+                if (isValid) {
+                    form.submit();
+                    alert("Form submitted successfully!");
+                    nameInput.value = "";
+                    emailInput.value = "";
+                    aemailInput.value = "";
+                    phoneInput.value = "";
+                    aphoneInput.value = "";
+                    planInput.value = "";
+                    photoInput.value = "";
+                    // window.close();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
